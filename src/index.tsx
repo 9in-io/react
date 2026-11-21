@@ -21,7 +21,7 @@ export type NineProviderProps = NineStoreOptions & { children?: ReactNode } & (
  * Makes 9in sign-in available to its children. Put it at the root of your app; on the
  * redirect URI it finishes the sign-in and then replaces the URL (see `onRedirect`).
  *
- *   <NineProvider issuer="https://acme.9in.io" clientId="…" redirectUri={`${location.origin}/callback`}>
+ *   <NineProvider issuer="https://acme.9in.io" clientId="…" redirectUri={`${location.origin}/nine/callback`}>
  */
 export function NineProvider(props: NineProviderProps) {
   const { children, onRedirect, location } = props;

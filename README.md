@@ -29,13 +29,13 @@ Not using React? Use `NineAuth` from [`@9in-io/sdk`](https://github.com/9in-io/s
 ## Sign users in
 
 Create a **single-page application** in the 9in console and add your callback URL
-(for example `https://app.example.com/callback`) to its redirect URIs.
+(for example `https://app.example.com/nine/callback`) to its redirect URIs.
 
 ```tsx
 import { NineProvider, SignedIn, SignedOut, useNine } from "@9in-io/react";
 
 createRoot(document.getElementById("root")!).render(
-  <NineProvider issuer="https://acme.9in.io" clientId="YOUR_CLIENT_ID" redirectUri={`${location.origin}/callback`}>
+  <NineProvider issuer="https://acme.9in.io" clientId="YOUR_CLIENT_ID" redirectUri={`${location.origin}/nine/callback`}>
     <App />
   </NineProvider>,
 );
@@ -82,7 +82,7 @@ URL with the page the user started from. With a router, pass its navigate functi
 Pass your API's identifier as `audience` and use `fetch` (or `getAccessToken`) from `useNine()`:
 
 ```tsx
-<NineProvider issuer="https://acme.9in.io" clientId="YOUR_CLIENT_ID" redirectUri={`${location.origin}/callback`} audience="https://api.example.com">
+<NineProvider issuer="https://acme.9in.io" clientId="YOUR_CLIENT_ID" redirectUri={`${location.origin}/nine/callback`} audience="https://api.example.com">
 ```
 
 ```tsx
@@ -117,9 +117,9 @@ To share one client with code outside React, create it yourself and pass it in:
 ```tsx
 import { NineAuth, NineProvider } from "@9in-io/react";
 
-const client = new NineAuth({ issuer: "https://acme.9in.io", clientId: "YOUR_CLIENT_ID", redirectUri: `${location.origin}/callback` });
+const client = new NineAuth({ issuer: "https://acme.9in.io", clientId: "YOUR_CLIENT_ID", redirectUri: `${location.origin}/nine/callback` });
 
-<NineProvider client={client} redirectUri={`${location.origin}/callback`}>
+<NineProvider client={client} redirectUri={`${location.origin}/nine/callback`}>
   <App />
 </NineProvider>;
 ```
